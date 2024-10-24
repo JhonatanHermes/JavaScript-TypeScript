@@ -1,0 +1,26 @@
+const HomeModel = require('../models/homemodel')
+
+HomeModel.create({
+    titulo: 'Um título de testes',
+    descricao: 'Uma descrição de testes.'
+})
+    .then(dados => console.log(dados))
+    .catch(e => console.log(e))
+
+exports.paginaInicial = (req, res, /*next*/) => {
+    //req.flash('info', 'Olá mundo')
+    //req.session.usuario = { nome: 'Jhonatan', logado:true }
+    //console.log('Respondendo ao cliente')
+    res.render('index', {
+        titulo: 'Estre será o título da página.',
+        numeros: [0,1,2,3,4,5,6,7,8,9]
+    })
+    //console.log(`'paginaInicial'Olha o que tem na ${req.session.nome}`)
+   // next()
+   return
+}
+
+exports.trataPost = (req, res, /*next*/) => {
+    res.send(req.body)
+    return
+}
